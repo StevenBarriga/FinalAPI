@@ -16,7 +16,7 @@ namespace FinalAPI.Domain.Services
         }
 
         //continuar aqui 
-        public async Task<IEnumerable<Student>> GetCountriesAsync()
+        public async Task<IEnumerable<Student>> GetStudentsAsync()
         {
             try
             {

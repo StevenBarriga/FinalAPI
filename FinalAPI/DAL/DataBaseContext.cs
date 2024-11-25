@@ -15,7 +15,7 @@ namespace FinalAPI.DAL
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Student>().HasIndex(c => c.Name).IsUnique();
-            modelBuilder.Entity<Asignature>().HasIndex("Name", "StudentId").IsUnique();
+            //modelBuilder.Entity<Asignature>().HasIndex("Name", "StudentId").IsUnique();
         }
         #region DbSets
 
