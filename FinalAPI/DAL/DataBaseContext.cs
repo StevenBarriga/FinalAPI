@@ -14,14 +14,14 @@ namespace FinalAPI.DAL
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Student>().HasIndex(c => c.Name).IsUnique();
+            modelBuilder.Entity<Student>().HasIndex(s => s.Name).IsUnique();
             //modelBuilder.Entity<Asignature>().HasIndex("Name", "StudentId").IsUnique();
         }
         #region DbSets
 
         public DbSet <Student> Students { get; set; }
 
-        public DbSet<Asignature> Asignatures { get; set; }
+        //public DbSet<Asignature> Asignatures { get; set; }
 
         #endregion
     }

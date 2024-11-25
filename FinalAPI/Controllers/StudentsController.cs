@@ -54,7 +54,7 @@ namespace FinalAPI.Controllers
             {
                 var newStudent = await _studentService.CreateStudentAsync(student);
                 if (newStudent == null) return NotFound();
-                return Ok(student);
+                return Ok(newStudent);
             }
             catch (Exception ex)
             {

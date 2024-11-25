@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FinalAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class DataBaseFinalAPI : Migration
+    public partial class FinalAPI : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,7 +18,7 @@ namespace FinalAPI.Migrations
                     id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Carrera = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Celular = table.Column<int>(type: "int", nullable: false),
+                    Celular = table.Column<double>(type: "float", nullable: false),
                     Direccion = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Estrato = table.Column<int>(type: "int", nullable: false),
                     ContactoEmergencia = table.Column<string>(type: "nvarchar(max)", nullable: false),

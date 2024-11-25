@@ -5,8 +5,7 @@ namespace FinalAPI.Domain.Interfaces
 {
     public interface IStudentService
     {
-        /*get by id, get all, create, update, delete*/ //operaciones basicas en las API
-        Task<IEnumerable<Student>> GetStudentsAsync(); // on esto se busca listar todos los paises
+        Task<IEnumerable<Student>> GetStudentsAsync(); 
 
         Task<Student> CreateStudentAsync(Student student);
         Task<Student> GetStudentByIdAsync(Guid id);

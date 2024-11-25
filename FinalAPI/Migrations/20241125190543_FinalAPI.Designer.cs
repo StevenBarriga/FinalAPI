@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalAPI.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    [Migration("20241124195047_DataBaseFinalAPI")]
-    partial class DataBaseFinalAPI
+    [Migration("20241125190543_FinalAPI")]
+    partial class FinalAPI
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,8 +35,8 @@ namespace FinalAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Celular")
-                        .HasColumnType("int");
+                    b.Property<double>("Celular")
+                        .HasColumnType("float");
 
                     b.Property<string>("ContactoEmergencia")
                         .IsRequired()

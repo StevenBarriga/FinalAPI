@@ -32,8 +32,8 @@ namespace FinalAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Celular")
-                        .HasColumnType("int");
+                    b.Property<double>("Celular")
+                        .HasColumnType("float");
 
                     b.Property<string>("ContactoEmergencia")
                         .IsRequired()
