@@ -16,10 +16,7 @@ namespace FinalAPI.DAL.Entities
         public string ContactoEmergencia { get; set; }  
     }
 
+        [Display(Name = "Asignaturas")]
+        public ICollection <Subject>? Subjects { get; set; }
 
-
-        //[Display(Name = "Asignaturas")]
-        //public ICollection <Asignature>? Asignatures { get; set; }
-
-    
 }
