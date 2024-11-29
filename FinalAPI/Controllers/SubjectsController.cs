@@ -29,5 +29,71 @@ namespace FinalAPI.Controllers
             }
             return Ok(subjects);
         }
+
+        [HttpGet, ActionName("Get")]
+        [Route("GetById/{id}")]
+
+        public async Task<ActionResult<Subject>> GetSubjectByIdAsync(Guid id)
+        {
+            var subject = await _subjectService.GetSubjectByIdAsync(id);
+
+            if (subject == null)
+            {
+                return NotFound();
+            }
+            return Ok(subject);
+        }
+
+        [HttpPost, ActionName("Create")]
+        [Route("Create")]
+        public async Task<ActionResult<Subject>> CreateSubjectAsync(Subject subject)
+        {
+            try
+            {
+                var newSubject = await _subjectService.CreateSubjectAsync(subject);
+                if (newSubject == null) return NotFound();
+                return Ok(newSubject);
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("Duplicate"))
+                    return Conflict(String.Format("{0} ya existe", subject.Name));
+
+                return Conflict(ex.Message);
+            }
+        }
+
+        [HttpPut, ActionName("Edit")]
+        [Route("Edit")]
+        public async Task<ActionResult<Subject>> UpdateSubjectAsync(Subject subject)
+        {
+            try
+            {
+                var editedSubject = await _subjectService.UpdateSubjectAsync(subject);
+                if (editedSubject == null) return NotFound();
+                return Ok(editedSubject);
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("Duplicate"))
+                    return Conflict(String.Format("{0} ya existe", subject.Name));
+
+                return Conflict(ex.Message);
+            }
+        }
+
+        [HttpDelete, ActionName("Delete")]
+        [Route("Delete")]
+        public async Task<ActionResult<Subject>> DeleteSubjectAsync(Guid id)
+        {
+            if (id == null) return BadRequest();
+
+            var deletedSubject = await _subjectService.DeleteSubjectAsync(id);
+            if (deletedSubject == null) return NotFound();
+            return Ok(deletedSubject);
+
+        }
+
     }
 }
+
