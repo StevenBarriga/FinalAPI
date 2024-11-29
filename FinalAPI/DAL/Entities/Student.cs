@@ -13,10 +13,16 @@ namespace FinalAPI.DAL.Entities
         public double Celular { get; set; }
         public string Direccion { get; set; }
         public int Estrato { get; set; }
-        public string ContactoEmergencia { get; set; }  
-    }
+        public string ContactoEmergencia { get; set; }
+
+
+
 
         [Display(Name = "Asignaturas")]
-        public ICollection <Subject>? Subjects { get; set; }
+        public ICollection<Subject>? Subjects { get; set; }
+    }
+
+
+
 
 }

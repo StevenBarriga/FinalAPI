@@ -28,6 +28,24 @@ namespace FinalAPI.Domain.Services
             }
         }
 
+
+        #region materias por estudiante
+        public async Task<IEnumerable<Subject>> GetSubjectsByStudentIdAsync(Guid id)
+        {
+            try
+            {
+                var Subjects = await _context.Subjects.Where(s => s.StudentId == id).ToListAsync();
+                return Subjects;
+            }
+            catch (DbUpdateException dbUpdateException)
+            {
+                throw new Exception(dbUpdateException.InnerException?.Message ?? dbUpdateException.Message);
+            }
+        }
+
+        #endregion estados por pais
+
+
         public async Task<Subject> GetSubjectByIdAsync(Guid id)
         {
             try

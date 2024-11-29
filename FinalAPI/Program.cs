@@ -14,6 +14,8 @@ builder.Services.AddDbContext<DataBaseContext>(o => o.UseSqlServer(builder.Confi
 
 //contenedor de dependencias 
 builder.Services.AddScoped<IStudentService, StudentService>();
+builder.Services.AddScoped<ISubjectService, SubjectService>();
+//builder.Services.AddTransient<SeederDB>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

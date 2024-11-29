@@ -30,6 +30,24 @@ namespace FinalAPI.Controllers
             return Ok(subjects);
         }
 
+        #region Subject by Student id
+
+        [HttpGet, ActionName("GetSubjectsByStudentId")]
+        [Route("GetByStudentId/{id}")] //URL api/states by country/get
+        public async Task<ActionResult<Subject>> GetSubjectsByStudentIdAsync(Guid id) // metodo nuevo estara bien ??
+        {
+            var subjects = await _subjectService.GetSubjectsByStudentIdAsync(id);
+            if (subjects == null)
+            {
+                return NotFound(); //NotFound = Status Code 404 
+            }
+            return Ok(subjects); //Ok = Status Code 404 
+        }
+
+        #endregion
+
+
+
         [HttpGet, ActionName("Get")]
         [Route("GetById/{id}")]
 

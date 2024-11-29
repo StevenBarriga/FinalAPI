@@ -6,6 +6,8 @@ namespace FinalAPI.Domain.Interfaces
     {
         Task<IEnumerable<Subject>> GetSubjectsAsync();
 
+        Task<IEnumerable<Subject>> GetSubjectsByStudentIdAsync(Guid id);
+
         Task<Subject> CreateSubjectAsync(Subject subject);
         Task<Subject> GetSubjectByIdAsync(Guid id);
         Task<Subject> UpdateSubjectAsync(Subject subject);
