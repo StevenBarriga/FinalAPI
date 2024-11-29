@@ -1,5 +1,6 @@
 ﻿using FinalAPI.DAL.Entities;
 using FinalAPI.Domain.Interfaces;
+using FinalAPI.Domain.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinalAPI.Controllers
@@ -14,7 +15,19 @@ namespace FinalAPI.Controllers
         {
             _subjectService = subjectService;
         }
-       
 
+        [HttpGet, ActionName("Get")]
+        [Route("GetAll")]
+
+        public async Task<ActionResult<IEnumerable<Subject>>> GetSubjectsAsync()
+        {
+            var subjects = await _subjectService.GetSubjectsAsync();
+
+            if (subjects == null || !subjects.Any())
+            {
+                return NotFound();
+            }
+            return Ok(subjects);
+        }
     }
 }
