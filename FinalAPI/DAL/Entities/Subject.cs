@@ -13,4 +13,7 @@ namespace FinalAPI.DAL.Entities
         public int Intensity { get; set; }
         public int Credits { get; set; }
     }
+
+    [Display(Name = "Estudiantes")]
+    public ICollection<Student>? Students { get; set; }
 }
