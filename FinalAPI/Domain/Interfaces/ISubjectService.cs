@@ -8,7 +8,7 @@ namespace FinalAPI.Domain.Interfaces
 
         Task<Subject> CreateSubjectAsync(Subject subject);
         Task<Subject> GetSubjectByIdAsync(Guid id);
-        Task<Subject> UpdateSubjecttAsync(Subject subject);
+        Task<Subject> UpdateSubjectAsync(Subject subject);
         Task<Subject> DeleteSubjectAsync(Guid id);
 
     }
