@@ -41,24 +41,38 @@ namespace FinalAPI.DAL
                 {
                     CreatedDate = DateTime.Now,
                     Name = "Steven Barriga",
+                    Carrera = "Software",
+                    Celular = 3113675962,
+                    Direccion ="cl 45 28 34",
+                    Estrato = 3,
+                    ContactoEmergencia = "Fernando",
                     Subjects = new List<Subject>()
                     {
                         new Subject
                         {
                             CreatedDate = DateTime.Now,
-                            Name = "Matematicas"
+                            Name = "Matematicas",
+                            Semester = 1,
+                            Intensity = 4,
+                            Credits = 3
                         },
 
                         new Subject
                         {
                             CreatedDate = DateTime.Now,
-                            Name = "ingles"
+                            Name = "ingles",
+                            Semester = 1,
+                            Intensity = 2,
+                            Credits = 2
                         },
 
                         new Subject
                         {
                             CreatedDate = DateTime.Now,
-                            Name = "fisica"
+                            Name = "fisica",
+                            Semester = 1,
+                            Intensity = 4,
+                            Credits = 3
                         }
                     }
                 });
@@ -68,12 +82,20 @@ namespace FinalAPI.DAL
                 {
                     CreatedDate = DateTime.Now,
                     Name = "Jeferson Mejia",
+                    Carrera = "Software",
+                    Celular = 3004562834,
+                    Direccion = "cl 90 48 34",
+                    Estrato = 3,
+                    ContactoEmergencia = "Luis",
                     Subjects = new List<Subject>()
                     {
                         new Subject
                         {
                             CreatedDate = DateTime.Now,
-                            Name = "Matematicas"
+                            Name = "Matematicas",
+                            Semester = 1,
+                            Intensity = 4,
+                            Credits = 3
                         }
                     }
                 });

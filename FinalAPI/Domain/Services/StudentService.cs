@@ -20,8 +20,8 @@ namespace FinalAPI.Domain.Services
         {
             try
             {
-                //var students = await _context.Students.Include(a => a.Asignatures).ToListAsync();
-                var students = await _context.Students.ToListAsync();
+                var students = await _context.Students.Include(s => s.Subjects).ToListAsync();
+                //var students = await _context.Students.ToListAsync();
                 return students;
             }
             catch (DbUpdateException dbUpdateException)

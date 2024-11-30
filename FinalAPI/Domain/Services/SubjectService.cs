@@ -18,7 +18,7 @@ namespace FinalAPI.Domain.Services
         {
             try
             {
-                //var students = await _context.Students.Include(a => a.Asignatures).ToListAsync();
+            
                 var subjects = await _context.Subjects.ToListAsync();
                 return subjects;
             }
