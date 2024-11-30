@@ -36,24 +36,36 @@ namespace FinalAPI.DAL
                     Celular = 3113675962,
                     Direccion ="cl 45 28 34",
                     Estrato = 2,
+                    ContactoEmergencia = "3117130097",
                     Subjects = new List<Subject>()
                     {
                         new Subject
                         {
                             CreatedDate = DateTime.Now,
-                            Name = "matematica"
+                            Name = "matematica",
+                            Semester = "3",
+                            Intensity = 3,
+                            Credits = 4,
+                          
                         },
 
                         new Subject
                         {
                             CreatedDate = DateTime.Now,
-                            Name = "algebra"
+                            Name = "algebra",
+                            Semester = "4",
+                            Intensity = 4,
+                            Credits= 2,
+                                
                         },
 
                         new Subject
                         {
                             CreatedDate = DateTime.Now,
-                            Name = "geometria"
+                            Name = "geometria",
+                            Semester = "3",
+                            Intensity = 2,
+                            Credits= 2,
                         }
                     }
                 });
@@ -66,12 +78,16 @@ namespace FinalAPI.DAL
                     Celular = 300000000,
                     Direccion = "cl 10 28 34",
                     Estrato = 4,
+                    ContactoEmergencia = "3117130091",
                     Subjects = new List<Subject>()
                     {
                         new Subject
                         {
                             CreatedDate = DateTime.Now,
-                            Name = "fisica"
+                            Name = "fisica",
+                            Semester = "3",
+                            Intensity = 3,
+                            Credits = 4,
                         }
                     }
                 });

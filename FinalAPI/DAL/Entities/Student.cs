@@ -13,6 +13,7 @@ namespace FinalAPI.DAL.Entities
         public double Celular { get; set; }
         public string Direccion { get; set; }
         public int Estrato { get; set; }
+        public string ContactoEmergencia { get; set; }
 
 
 
