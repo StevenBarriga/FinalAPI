@@ -28,7 +28,15 @@ namespace FinalAPI.Domain.Services
 
         public async Task<IEnumerable<Subject>> GetSubjectsByStudentIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var subjects = await _context.Subjects.Where(s => s.StudentId == id).ToListAsync();
+                return subjects;
+            }
+            catch (DbUpdateException dbUpdateException)
+            {
+                throw new Exception(dbUpdateException.InnerException?.Message ?? dbUpdateException.Message);
+            }
         }
 
         public async Task<Subject> GetSubjectByIdAsync(Guid id)

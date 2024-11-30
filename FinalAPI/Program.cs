@@ -16,7 +16,7 @@ builder.Services.AddDbContext<DataBaseContext>(o => o.UseSqlServer(builder.Confi
 //contenedor de dependencias 
 builder.Services.AddScoped<IStudentService, StudentService>();
 builder.Services.AddScoped<ISubjectService, SubjectService>();
-//builder.Services.AddTransient<SeederDB>();
+builder.Services.AddTransient<SeederDB>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -24,17 +24,17 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-/*SeederData();
+SeederData();
 void SeederData()
 {
-    IServiceScopeFactory? scopeFactory = app.Services.GetService<IServiceScopeFactory?>();
+    IServiceScopeFactory? scopedFactory = app.Services.GetService<IServiceScopeFactory>();
 
-    using (IServiceScope? scope = scopeFactory.CreateScope())
+    using (IServiceScope? scope = scopedFactory.CreateScope())
     {
         SeederDB? service = scope.ServiceProvider.GetService<SeederDB>();
         service.SeederAsync().Wait();
     }
-}*/
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

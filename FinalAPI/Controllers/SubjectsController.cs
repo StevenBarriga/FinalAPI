@@ -31,6 +31,21 @@ namespace FinalAPI.Controllers
             return Ok(subjects);
         }
 
+
+        [HttpGet, ActionName("GetSubjectsByStudentId")]
+        [Route("GetByStudentId/{id}")] 
+        public async Task<ActionResult<Subject>> GetSubjectsByStudentIdAsync(Guid id) 
+        {
+            var subjects = await _subjectService.GetSubjectsByStudentIdAsync(id);
+            if (subjects == null)
+            {
+                return NotFound();  
+            }
+            return Ok(subjects); 
+        }
+
+
+
         [HttpGet, ActionName("Get")]
         [Route("GetById/{id}")]
         public async Task<ActionResult<Subject>> GetSubjectByIdAsync(Guid id)
