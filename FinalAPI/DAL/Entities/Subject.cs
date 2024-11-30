@@ -12,13 +12,12 @@ namespace FinalAPI.DAL.Entities
         public string Name { get; set; }
 
 
-        //[Display(Name = "Estudiante")]
-        //public Student? Student { get; set; }
+        [Display(Name = "Estudiante")]
+        public Student? Student { get; set; }
 
 
-        //[Display(Name = "Id Estudiante")]
-
-        //public Guid StudentId { get; set; }
+        [Display(Name = "Id Estudiante")]
+        public Guid StudentId { get; set; }
     }
 
 

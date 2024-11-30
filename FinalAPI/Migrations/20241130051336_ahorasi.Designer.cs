@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalAPI.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    [Migration("20241130034114_finalapi")]
-    partial class finalapi
+    [Migration("20241130051336_ahorasi")]
+    partial class ahorasi
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -81,12 +81,33 @@ namespace FinalAPI.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<Guid>("StudentId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("id");
 
-                    b.HasIndex("Name")
+                    b.HasIndex("StudentId");
+
+                    b.HasIndex("Name", "StudentId")
                         .IsUnique();
 
                     b.ToTable("Subjects");
+                });
+
+            modelBuilder.Entity("FinalAPI.DAL.Entities.Subject", b =>
+                {
+                    b.HasOne("FinalAPI.DAL.Entities.Student", "Student")
+                        .WithMany("Subjects")
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Student");
+                });
+
+            modelBuilder.Entity("FinalAPI.DAL.Entities.Student", b =>
+                {
+                    b.Navigation("Subjects");
                 });
 #pragma warning restore 612, 618
         }

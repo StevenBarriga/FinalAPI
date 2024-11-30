@@ -17,8 +17,8 @@ namespace FinalAPI.DAL.Entities
 
 
 
-        //[Display(Name = "Asignaturas")]
-        //public ICollection<Subject>? Subjects { get; set; }
+        [Display(Name = "Asignaturas")]
+        public ICollection<Subject>? Subjects { get; set; }
     }
 
 
