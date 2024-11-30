@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FinalAPI.Domain.Services
 {
-    public class SubjectService : ISubjectService
+    public class SubjectService :ISubjectService
     {
         private readonly DataBaseContext _context;
         public SubjectService(DataBaseContext context)
@@ -13,12 +13,11 @@ namespace FinalAPI.Domain.Services
             _context = context;
         }
 
-        //continuar aqui 
         public async Task<IEnumerable<Subject>> GetSubjectsAsync()
         {
             try
             {
-            
+                //var students = await _context.Students.Include(c => c.Subjects).ToListAsync();
                 var subjects = await _context.Subjects.ToListAsync();
                 return subjects;
             }
@@ -28,23 +27,10 @@ namespace FinalAPI.Domain.Services
             }
         }
 
-
-        #region materias por estudiante
         public async Task<IEnumerable<Subject>> GetSubjectsByStudentIdAsync(Guid id)
         {
-            try
-            {
-                var Subjects = await _context.Subjects.Where(s => s.StudentId == id).ToListAsync();
-                return Subjects;
-            }
-            catch (DbUpdateException dbUpdateException)
-            {
-                throw new Exception(dbUpdateException.InnerException?.Message ?? dbUpdateException.Message);
-            }
+            throw new NotImplementedException();
         }
-
-        #endregion estados por pais
-
 
         public async Task<Subject> GetSubjectByIdAsync(Guid id)
         {
@@ -110,5 +96,6 @@ namespace FinalAPI.Domain.Services
                 throw new Exception(dbUpdateException.InnerException?.Message ?? dbUpdateException.Message);
             }
         }
+
     }
 }

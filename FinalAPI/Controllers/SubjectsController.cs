@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FinalAPI.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
     public class SubjectsController : Controller
@@ -16,9 +17,9 @@ namespace FinalAPI.Controllers
             _subjectService = subjectService;
         }
 
+
         [HttpGet, ActionName("Get")]
         [Route("GetAll")]
-
         public async Task<ActionResult<IEnumerable<Subject>>> GetSubjectsAsync()
         {
             var subjects = await _subjectService.GetSubjectsAsync();
@@ -30,27 +31,8 @@ namespace FinalAPI.Controllers
             return Ok(subjects);
         }
 
-        #region Subject by Student id
-
-        [HttpGet, ActionName("GetSubjectsByStudentId")]
-        [Route("GetByStudentId/{id}")] //URL api/states by country/get
-        public async Task<ActionResult<Subject>> GetSubjectsByStudentIdAsync(Guid id) // metodo nuevo estara bien ??
-        {
-            var subjects = await _subjectService.GetSubjectsByStudentIdAsync(id);
-            if (subjects == null)
-            {
-                return NotFound(); //NotFound = Status Code 404 
-            }
-            return Ok(subjects); //Ok = Status Code 404 
-        }
-
-        #endregion
-
-
-
         [HttpGet, ActionName("Get")]
         [Route("GetById/{id}")]
-
         public async Task<ActionResult<Subject>> GetSubjectByIdAsync(Guid id)
         {
             var subject = await _subjectService.GetSubjectByIdAsync(id);
@@ -81,24 +63,26 @@ namespace FinalAPI.Controllers
             }
         }
 
+
         [HttpPut, ActionName("Edit")]
         [Route("Edit")]
-        public async Task<ActionResult<Subject>> UpdateSubjectAsync(Subject subject)
+        public async Task<ActionResult<Subject>> UpdateStudentAsync(Subject Subject)
         {
             try
             {
-                var editedSubject = await _subjectService.UpdateSubjectAsync(subject);
+                var editedSubject = await _subjectService.UpdateSubjectAsync(Subject);
                 if (editedSubject == null) return NotFound();
                 return Ok(editedSubject);
             }
             catch (Exception ex)
             {
                 if (ex.Message.Contains("Duplicate"))
-                    return Conflict(String.Format("{0} ya existe", subject.Name));
+                    return Conflict(String.Format("{0} ya existe", Subject.Name));
 
                 return Conflict(ex.Message);
             }
         }
+
 
         [HttpDelete, ActionName("Delete")]
         [Route("Delete")]
@@ -112,6 +96,6 @@ namespace FinalAPI.Controllers
 
         }
 
+
     }
 }
-

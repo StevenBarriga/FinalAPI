@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalAPI.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    [Migration("20241129234747_Subjeccct")]
-    partial class Subjeccct
+    [Migration("20241130034114_finalapi")]
+    partial class finalapi
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,10 +37,6 @@ namespace FinalAPI.Migrations
 
                     b.Property<double>("Celular")
                         .HasColumnType("float");
-
-                    b.Property<string>("ContactoEmergencia")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -77,12 +73,6 @@ namespace FinalAPI.Migrations
                     b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Credits")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Intensity")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
@@ -91,37 +81,12 @@ namespace FinalAPI.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("Semester")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("StudentId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("id");
 
-                    b.HasIndex("StudentId");
-
-                    b.HasIndex("Name", "StudentId")
+                    b.HasIndex("Name")
                         .IsUnique();
 
                     b.ToTable("Subjects");
-                });
-
-            modelBuilder.Entity("FinalAPI.DAL.Entities.Subject", b =>
-                {
-                    b.HasOne("FinalAPI.DAL.Entities.Student", "Student")
-                        .WithMany("Subjects")
-                        .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Student");
-                });
-
-            modelBuilder.Entity("FinalAPI.DAL.Entities.Student", b =>
-                {
-                    b.Navigation("Subjects");
                 });
 #pragma warning restore 612, 618
         }

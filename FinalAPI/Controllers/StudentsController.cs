@@ -34,9 +34,10 @@ namespace FinalAPI.Controllers
             return Ok(students);
         }
 
+
+
         [HttpGet, ActionName("Get")]
         [Route("GetById/{id}")]
-
         public async Task<ActionResult<Student>> GetStudentByIdAsync(Guid id)
         {
             var student = await _studentService.GetStudentByIdAsync(id);
@@ -47,6 +48,7 @@ namespace FinalAPI.Controllers
             }
             return Ok(student);
         }
+
 
         [HttpPost, ActionName("Create")]
         [Route ("Create")]
@@ -67,6 +69,8 @@ namespace FinalAPI.Controllers
             }
         }
 
+
+
         [HttpPut, ActionName ("Edit")]
         [Route("Edit")]
         public async Task<ActionResult<Student>> UpdateStudentAsync(Student student)
@@ -85,6 +89,8 @@ namespace FinalAPI.Controllers
                 return Conflict(ex.Message);
             }
         }
+
+
 
         [HttpDelete, ActionName("Delete")]
         [Route("Delete")]

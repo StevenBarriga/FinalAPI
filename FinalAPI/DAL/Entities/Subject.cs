@@ -10,20 +10,15 @@ namespace FinalAPI.DAL.Entities
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
 
         public string Name { get; set; }
-        public int Semester { get; set; }
-        public int Intensity { get; set; }
-        public int Credits { get; set; }
 
 
+        //[Display(Name = "Estudiante")]
+        //public Student? Student { get; set; }
 
 
-        [Display(Name = "Estudiante")]
-        public Student? Student { get; set; }
+        //[Display(Name = "Id Estudiante")]
 
-
-        [Display(Name = "Id Estudiante")]
-
-        public Guid StudentId { get; set; }
+        //public Guid StudentId { get; set; }
     }
 
 
